@@ -1,0 +1,141 @@
+@import 'px2rem.scss';
+
+.home-nav{
+    padding: px2rem(10) 0;
+    background-color: #fff;
+
+    [data-dpr="2"] &{
+        font-size: 24px;
+    }
+    [data-dpr="3"] &{
+        font-size: 40px;
+    }
+
+    a{
+        color: #333;
+        border-left: 1px solid #ddd;
+        text-decoration: none;
+
+        &:first-child{
+            border-left: none;
+        }
+
+        i{
+            [data-dpr="2"] &{
+                font-size: 36px;
+            }
+            [data-dpr="3"] &{
+                font-size: 56px;
+            }
+        }
+    }
+
+    span{
+        display: block;
+    }
+}
+
+.home-swipe {
+    height: px2rem(360);
+    background-color: #fff;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .mint-swipe-indicator {
+        margin: 0 px2rem(5);
+        width: px2rem(15);
+        height: px2rem(15);
+    }
+
+    .mint-swipe-indicator.is-active {
+        background: #f60;
+        opacity: 0.6;
+    }
+}
+
+.home-tag-title{
+    margin-top: px2rem(10);
+    padding-left: 15px;
+    height: px2rem(70);
+    color: #ff590d;
+    border-left: 2px solid #ff590d;
+    border-bottom: 1px solid #efefef;
+    background-color: #fff;
+    line-height: px2rem(70);
+    font-size: px2rem(28);
+
+    i{
+        font-size: px2rem(30);
+    }
+}
+
+.page-infinite-wrapper {
+    overflow: scroll;
+}
+
+.page-infinite-loading{
+    text-align: center;
+    height: px2rem(80);
+    line-height: px2rem(80);
+
+    div {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+}
+
+.home-list{
+    background-color: #fff;
+
+    li{
+        border-bottom: 1px solid #efefef;
+    }
+
+    .home-list-link{
+        position: relative;
+        display: block;
+        padding: px2rem(20);
+        box-sizing: border-box;
+        overflow: hidden;
+
+        .logo{
+            float: left;
+            width: px2rem(150);
+            height: px2rem(150);
+            overflow: hidden;
+
+            img{
+                width: px2rem(150);
+                height: px2rem(150);
+                object-fit: cover;
+                border-radius: 50%;
+            }
+        }
+
+        .content{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: px2rem(150);
+            padding-left: px2rem(20);
+            overflow: hidden;
+
+            .name{
+                color: #333;
+                font-size: px2rem(30);
+            }
+
+            .address{
+                margin-top: px2rem(10);
+                color: #999;
+                font-size: px2rem(26);
+                line-height: px2rem(32);
+            }
+        }
+    }
+}

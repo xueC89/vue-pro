@@ -1,0 +1,113 @@
+@import 'px2rem.scss';
+
+*{
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+
+    &:hover{
+        text-decoration: none;
+    }
+}
+
+
+html, body, #app{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: 'Microsoft Yahei';
+}
+
+body, #app{
+    overflow: hidden;
+}
+
+#app{
+    background: #efeff4;
+}
+
+@font-face {
+    font-family: 'iconfont';
+    src: url('./font/iconfont.eot?x=2');
+    /* IE9*/
+    src: url('./font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('./font/iconfont.woff?x=2') format('woff'), /* chrome、firefox */
+    url('./font/iconfont.ttf?x=2') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('./font/iconfont.svg#iconfont') format('svg');
+    /* iOS 4.1- */
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$color-green: green;
+$color-red: red;
+$color-orange: orange;
+$color-lightblue: lightblue;
+
+.color-green{
+    color: $color-green;
+}
+.color-red{
+    color: $color-red;
+}
+.color-orange{
+    color: $color-orange;
+}
+.color-lightblue{
+    color: $color-lightblue;
+}
+
+.view{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.page-content{
+    position: relative;
+    box-sizing: border-box;
+    height: 100%;
+    overflow: auto;
+    z-index: 1;
+    padding: px2rem(90) 0;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+
+    [class*=col-]{
+        display: block;
+    }
+
+    .col-auto{
+        flex: 1;
+        -webkit-box-flex: 1;
+    }
+    .col-2{
+        width: 50%;
+    }
+    .col-3{
+        width: 33.33333%;
+    }
+    .col-4{
+        width: 25%;
+    }
+    .col-5{
+        width: 20%;
+    }
+}
