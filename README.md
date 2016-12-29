@@ -1,4 +1,4 @@
-# mn2-pro
+# vue-pro
 
 > A Vue.js project
 
