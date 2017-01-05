@@ -2,3 +2,16 @@
 	@return $px/($designWidth/10) + rem;
 }
 $designWidth : 750;
+
+
+@mixin font-fpr($font-size){
+	font-size: $font-size;
+
+	[data-dpr="2"] & {
+		font-size: $font-size * 2;
+	}
+
+	[data-dpr="3"] & {
+		font-size: $font-size * 3;
+	}
+}
