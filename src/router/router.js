@@ -2,6 +2,7 @@ import Vue from 'vue'
 
 import Home from '../components/home.vue'
 import Center from '../components/center.vue'
+import Article from '../components/article.vue'
 
 import VueRouter from 'vue-router'
 
@@ -10,7 +11,8 @@ Vue.use(VueRouter)
 const routes = [
     {path: '', redirect: '/home'},
     {path: '/home', component: Home},
-    {path: '/center', component: Center}
+    {path: '/center', component: Center},
+    {path: '/article/:id', component: Article}
 ]
 
 const router = new VueRouter({
