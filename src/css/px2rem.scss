@@ -3,7 +3,7 @@
 }
 $designWidth : 750;
 
-@mixin font-fpr($font-size){
+@mixin font-dpr($font-size){
 	font-size: $font-size;
 
 	[data-dpr="2"] & {

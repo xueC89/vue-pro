@@ -1,2 +1,24 @@
 @import 'px2rem.scss';
 
+.article-pic{
+    margin-top: px2rem(90);
+    
+    img{
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        height: px2rem(400);
+        object-fit: cover;
+    }
+}
+
+.article-content{
+    padding: px2rem(20) px2rem(30);
+    color: #666;
+    line-height: 1.4;
+    @include font-dpr(14px);
+
+    p{
+        margin-bottom: px2rem(10);
+    }
+}
