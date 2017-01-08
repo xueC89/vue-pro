@@ -2,7 +2,7 @@
     <div class="page-infinite-wrapper home-list" ref="wrapper" :style="{ height: wrapperHeight + 'px' }">
         <ul class="page-infinite-list" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="50">
             <li v-for="item in doList" class="page-infinite-listitem">
-                <router-link class="home-list-link" to="/article">
+                <router-link class="home-list-link" :to="{name: 'article', params: {id: item}}">
                     <div class="logo"><img src="../../images/01.jpg" alt=""></div>
                     <div class="content">
                         <div class="name">必胜客 {{ item }}</div>
