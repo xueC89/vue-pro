@@ -45,6 +45,7 @@ export default {
     data(){
         return {
             imgs: [],
+            listData: []
         }
     },
     methods: {
@@ -52,18 +53,26 @@ export default {
     },
     mounted() {
         var t = this;
-        var dataImg = t.imgs;
         api.indexGetPic(function(res){
             for(let i=0; i<res.length; i++){
-                dataImg.push(res[i]);
+                t.imgs.push(res[i]);
+            }
+        });
+
+        api.articleGetList(function(res){
+            for(let i=0; i<res.length; i++){
+                t.listData.push(res[i]);
             }
         })
+
     },
     components: {
         indexList: List
     },
     computed: {
-        indexListData: []
+        indexListData: function(){
+            return this.listData;
+        }
     }
 }
 </script>

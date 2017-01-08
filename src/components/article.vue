@@ -1,33 +1,51 @@
 <template>
     <div class="view">
-        <mt-header title="标题" class="navbar common-navbar">
+        <mt-header class="navbar common-navbar">
             <router-link to="/" slot="left">
                 <mt-button>返回</mt-button>
             </router-link>
         </mt-header>
         <div class="article-pic">
-            <img src="../images/01.jpg" alt="">
+            <img :src=" pic " alt="">
+        </div>
+        <div class="article-info">
+            <span>{{ name }}</span>
+            <span>{{ date }}</span>
         </div>
         <div class="article-content">
-            <p>
-                内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
-            </p>
-            <p>
-                内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内
-            </p>
-            <p>
-                内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
-            </p>
+            {{ content }}
         </div>
     </div>
 </template>
 
 <script>
 require('../css/article.scss');
+import api from '../api/api.js'
 
 export default {
+    data(){
+        return {
+            'id': '',
+            'content': '',
+            'pic': '',
+            'title': '',
+            'date': '',
+            'name': ''
+        }
+    }
+    ,
     mounted(){
-        console.log(this.$route.params.id)
+        var t = this;
+        this.id = this.$route.params.id;
+        api.articleGetContent(function(res){
+            t.content = res.content;
+            t.pic = res.pic;
+            t.title = res.title;
+            t.name = res.name;
+            t.date = res.date;
+            log(res)
+        })
+
     }
 
 }

@@ -12,6 +12,15 @@
     }
 }
 
+.article-info{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 px2rem(30);
+    margin-top: px2rem(20);
+    @include font-dpr(12);
+    color: #999;
+}
+
 .article-content{
     padding: px2rem(20) px2rem(30);
     color: #666;
