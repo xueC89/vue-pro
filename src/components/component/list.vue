@@ -1,7 +1,7 @@
 <template>
     <div class="page-infinite-wrapper home-list" ref="wrapper" :style="{ height: wrapperHeight + 'px' }">
         <ul class="page-infinite-list" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="50">
-            <li v-for="item in doList" class="page-infinite-listitem">
+            <li v-for="item in indexListData" class="page-infinite-listitem">
                 <router-link class="home-list-link" :to="{name: 'article', params: {id: item.articleId}}">
                     <div class="logo"><img :src="item.logo" alt=""></div>
                     <div class="content">
@@ -23,6 +23,7 @@
 <script>
 require('../../css/list.scss')
 import api from '../../api/api.js'
+import {mapGetters} from 'vuex'
 
     export default {
         data(){
@@ -34,18 +35,19 @@ import api from '../../api/api.js'
         },
         methods: {
             loadMore() {
-                var t = this;
+                var vm = this;
                 this.loading = true;
                 setTimeout(() => {
                     /*let last = this.doList[this.doList.length - 1];
                     for (let i = 1; i <= 5; i++) {
                         this.doList.push(last + i);
                     }*/
-                    api.articleGetList(function(res){
+                    /*api.articleGetList(function(res){
                         for(let i=0; i<res.length; i++){
                             t.doList.push(res[i]);
                         }
-                    })
+                    })*/
+                    vm.$store.dispatch('indexGetList')
                     this.loading = false;
                 }, 2500);
             }
@@ -65,10 +67,13 @@ import api from '../../api/api.js'
                 }
             }
         },
-        computed: {
+       /* computed: {
             doList: function(){
                 return this.listData
             }
-        }
+        }*/
+        computed: mapGetters({
+            indexListData: 'indexListData',
+        })
     }
 </script>

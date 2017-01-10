@@ -33,15 +33,18 @@ export default {
             'name': ''
         }
     },
+    created: function(){
+        this.$store.commit('COM_CONF', {isFooter: false})
+    },
     mounted(){
-        var t = this;
+        var vm = this;
         this.id = this.$route.params.id;
         api.articleGetContent(function(res){
-            t.content = res.content;
-            t.pic = res.pic;
-            t.title = res.title;
-            t.name = res.name;
-            t.date = res.date;
+            vm.content = res.content;
+            vm.pic = res.pic;
+            vm.title = res.title;
+            vm.name = res.name;
+            vm.date = res.date;
         })
 
     }

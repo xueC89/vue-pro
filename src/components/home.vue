@@ -6,7 +6,7 @@
         </mt-header>
         <div class="page-content">
             <mt-swipe :auto="5000" class="home-swipe">
-                <mt-swipe-item v-for="img in imgs"><img :src="img.pic" :alt="img.title"></mt-swipe-item>
+                <mt-swipe-item v-for="img in indexPicsData"><img :src="img.pic" :alt="img.title"></mt-swipe-item>
             </mt-swipe>
             <div class="row home-nav">
                 <router-link class="col-auto" to="">
@@ -40,39 +40,27 @@
 require('../css/home.scss')
 import api from '../api/api.js'
 import List from './component/list'
+import {mapGetters} from 'vuex'
 
 export default {
-    data(){
-        return {
-            imgs: [],
-            listData: []
-        }
-    },
     methods: {
 
     },
-    mounted() {
-        var t = this;
-        api.indexGetPic(function(res){
-            for(let i=0; i<res.length; i++){
-                t.imgs.push(res[i]);
-            }
-        });
+    created() {
+        var vm = this;
+        vm.$store.commit('COM_CONF', {isFooter: true})
 
-        api.articleGetList(function(res){
-            for(let i=0; i<res.length; i++){
-                t.listData.push(res[i]);
-            }
+        vm.$store.dispatch('indexGetPics').then(function(){
+            vm.$store.dispatch('indexGetList')
         })
 
     },
     components: {
         indexList: List
     },
-    computed: {
-        indexListData: function(){
-            return this.listData;
-        }
-    }
+    computed: mapGetters({
+        indexListData: 'indexListData',
+        indexPicsData: 'indexPicsData'
+    })
 }
 </script>
