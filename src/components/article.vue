@@ -32,8 +32,7 @@ export default {
             'date': '',
             'name': ''
         }
-    }
-    ,
+    },
     mounted(){
         var t = this;
         this.id = this.$route.params.id;
@@ -43,7 +42,6 @@ export default {
             t.title = res.title;
             t.name = res.name;
             t.date = res.date;
-            log(res)
         })
 
     }

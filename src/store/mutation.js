@@ -5,6 +5,7 @@
 
 export const COM_LOADING_STATUS = 'COM_LOADING_STATUS'
 export const COM_LOGIN_STATUS = 'COM_LOGIN_STATUS'
+export const COM_CONF = 'COM_CONF'
 
 
 /**
