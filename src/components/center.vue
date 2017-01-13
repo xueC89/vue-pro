@@ -4,11 +4,11 @@
         <div class="page-content">
             <div class="center-header">
                 <div class="info">
-                    <img src="../images/3.jpeg" alt="">
-                    边城
+                    <img :src="userAvatar" alt="">
+                    <span>{{userName}}</span>
                 </div>
                 <div class="edit">
-                    <router-link to=""><i class="iconfont">&#xe621;</i></router-link>
+                    <router-link to="/editName"><i class="iconfont">&#xe621;</i></router-link>
                 </div>
             </div>  
 
@@ -54,6 +54,19 @@
 
 <script>
 require('../css/center.scss')
+import {mapGetters} from 'vuex'
 
+export default {
+    created (){
+        var vm = this;
+        vm.$store.commit('COM_CONF', {isFooter: true});
 
+        vm.$store.dispatch('centerGetUserInfo');
+
+    },
+    computed: mapGetters({
+        userName: 'centerUserName',
+        userAvatar: 'centerUserAvatar'
+    })
+}
 </script>

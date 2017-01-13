@@ -64,8 +64,8 @@ Mock.mock(
                 'code': 1000,
                 'msg': 'success',
                 'data': {
-                    'name': '@cname',
-                    'pic': '@dataImage'
+                    'name': '边城',
+                    'pic': '/dist/3.jpeg'
                 }
             }
         }

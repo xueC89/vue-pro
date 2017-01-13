@@ -51,5 +51,15 @@ export default {
                 }, 0);
             }
         })
+    },
+
+    centerGetUserInfo: function(cb) {
+        axios.get('/center/getInfo').then(function(res){
+            if(res.data.data.code === 1000){
+                setTimeout(function(){
+                    cb(res.data.data.data)
+                }, 0);
+            }
+        })
     }
 }

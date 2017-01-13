@@ -20,5 +20,6 @@ export const INDEX_GET_LIST = 'INDEX_GET_LIST'
  * 个人中心
  */
 
+export const CENTER_USER_INFO = 'CENTER_USER_INFO'
 export const CENTER_USER_NAME = 'CENTER_USER_NAME'
 export const CENTER_USER_AVATAR = 'CENTER_USER_AVATAR'
