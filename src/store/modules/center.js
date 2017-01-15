@@ -24,8 +24,14 @@ const actions = {
 
 const mutations = {
     [types.CENTER_USER_INFO](state, {res}){
-        state.center.userName = res.name;
-        state.center.userAvatar = res.pic;
+        if(!state.center.userName){
+            state.center.userName = res.name;
+            state.center.userAvatar = res.pic;
+        }
+    },
+    [types.CENTER_USER_NAME](state, name){
+        state.center.userName = name;
+        log(state.center.userName)
     }
 }
 

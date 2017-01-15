@@ -99,21 +99,10 @@
         @include font-dpr(16px);
     }
 
-    .del{
-        position: absolute;
-        display: none;
-        top: px2rem(20);
-        right: px2rem(20);
-        width: px2rem(40);
-        height: px2rem(40);
-        border-radius: 50%;
-        background: rgba(0, 0, 0, 0.5);
-        color: #fff;
-        text-align: center;
-        line-height: px2rem(42);
-
-        &.show{
-            display: block;
-        }
+    button{
+        padding: px2rem(20) 0;
+        margin-top: px2rem(20);
+        height: auto;
+        @include font-dpr(14px);
     }
 }

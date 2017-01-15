@@ -5,8 +5,8 @@
         </mt-header>
         <div class="page-content">
             <div class="edit-name-box">
-                <input type="text" name="" id="" class="edit-name" :value="userName" v-on:keyup.delete="delShowFn">
-                <span class="del" :class="{show: delShow}">X</span>
+                <input type="text" name="" id="" class="edit-name" v-model="name">
+                <mt-button size="large" type="primary" @click="saveName">保存</mt-button>
             </div>
         </div>
     </div>
@@ -17,23 +17,23 @@ import {mapGetters} from 'vuex'
 
 export default {
     data: function(){
+        var vm = this
         return {
-            delShow: false
+            name: ''
         }
     },
     methods: {
         goBack: function(){
             this.$router.go(-1);
         },
-        delShowFn: function(){
-            this.delShow = true;
+        saveName() {
+            this.$store.commit('CENTER_USER_NAME', this.name)
         }
     },
     created (){
         var vm = this;
         vm.$store.commit('COM_CONF', {isFooter: false})
-        
-        log( this.delShow)
+        vm.name = vm.userName;
     },
     computed: mapGetters({
         userName: 'centerUserName'
