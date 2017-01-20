@@ -14,6 +14,7 @@
 
 <script>
 import {mapGetters} from 'vuex'
+import { Indicator } from 'mint-ui'
 
 export default {
     data: function(){
@@ -27,7 +28,13 @@ export default {
             this.$router.go(-1);
         },
         saveName() {
-            this.$store.commit('CENTER_USER_NAME', this.name)
+            var vm = this;
+            vm.$store.commit('CENTER_USER_NAME', this.name);
+            Indicator.open();
+            setTimeout(function(){
+                Indicator.close();
+                vm.goBack();
+            }, 2000)
         }
     },
     created (){
